@@ -1,15 +1,15 @@
 package dev.nautchkafe.studios.network.sdk.tabulate;
 
-record TabulatePosition(
+public record TabulatePosition(
         int row,
         int column
 ) {
 
-    boolean validate() {
+    public boolean validate() {
         return row >= 0 && column >= 0;
     }
 
-    int toScore() {
+    public int toScore() {
         return row * 20 + column;
     }
 }

@@ -1,6 +1,7 @@
 plugins {
     id("java")
     id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("io.papermc.paperweight.userdev") version "1.7.1"
 }
 
 group = "dev.nautchkafe.studios.network.sdk.tabulate"
@@ -14,12 +15,11 @@ repositories {
 }
 
 dependencies {
+    paperweight.paperDevBundle("1.20.4-R0.1-SNAPSHOT")
     compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
-    implementation("com.mojang:authlib:5.0.47")
 
-    implementation("net.kyori:adventure-platform-bukkit:4.4.0")
-    implementation("net.kyori:adventure-text-minimessage:4.21.0")
-    implementation("net.kyori:adventure-text-serializer-gson:4.15.0")
+    implementation("org.spigotmc:spigot:1.20.4-R0.1-SNAPSHOT")
+    implementation("com.mojang:authlib:5.0.47")
 }
 
 tasks {

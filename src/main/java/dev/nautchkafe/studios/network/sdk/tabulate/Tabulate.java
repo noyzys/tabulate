@@ -5,8 +5,8 @@ import java.util.function.Function;
 
 interface Tabulate {
 
-    Tabulate composeHeader(final Function<TabulatePlayer, String> headerComposer);
-    Tabulate composeFooter(final Function<TabulatePlayer, String> footerComposer);
+    Tabulate header(final Function<TabulatePlayer, String> headerComposer);
+    Tabulate footer(final Function<TabulatePlayer, String> footerComposer);
 
     Tabulate column(final int row, final int column,
                     final BiFunction<TabulatePlayer, Integer, String> columnComposer);
@@ -15,7 +15,7 @@ interface Tabulate {
 
     TabulateCoordinator finalizeComposition();
 
-    static Tabulate compose() {
+    static Tabulate create() {
         return new TabulateCreator();
     }
 }

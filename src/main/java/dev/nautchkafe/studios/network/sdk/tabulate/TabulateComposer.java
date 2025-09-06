@@ -28,7 +28,6 @@ final class TabulateComposer implements TabulateProcessor {
     void skinComposer(final TabulateSkinComposer skinComposer) {
         this.skinComposer = skinComposer != null
                 ? skinComposer : TabulateSkinComposer.empty();
-
     }
 
     void implColumnComposer(final TabulatePosition position,

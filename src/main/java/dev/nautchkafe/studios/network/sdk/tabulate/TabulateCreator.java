@@ -16,13 +16,13 @@ final class TabulateCreator implements Tabulate {
     }
 
     @Override
-    public Tabulate composeHeader(final Function<TabulatePlayer, String> headerComposer) {
+    public Tabulate header(final Function<TabulatePlayer, String> headerComposer) {
         this.headerComposer = headerComposer;
         return this;
     }
 
     @Override
-    public Tabulate composeFooter(final Function<TabulatePlayer, String> footerComposer) {
+    public Tabulate footer(final Function<TabulatePlayer, String> footerComposer) {
         this.footerComposer = footerComposer;
         return this;
     }
@@ -44,6 +44,10 @@ final class TabulateCreator implements Tabulate {
 
     @Override
     public TabulateCoordinator finalizeComposition() {
-        return null;
+        composer.headerComposer(headerComposer);
+        composer.footerComposer(footerComposer);
+        composer.skinComposer(player -> skinComposer.apply(player));
+
+        return new TabulateDistributor(composer);
     }
 }

@@ -4,7 +4,7 @@ interface TabulateCoordinator {
 
     void distributeTo(final TabulatePlayer player);
 
-    void distributeToAll(final Iterable<TabulatePlayer> player);
+    void distributeToAll(final Iterable<TabulatePlayer> players);
 
     void revoke(final TabulatePlayer player);
 
