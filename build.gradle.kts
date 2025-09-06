@@ -1,0 +1,34 @@
+plugins {
+    id("java")
+    id("com.github.johnrengelman.shadow") version "8.1.1"
+}
+
+group = "dev.nautchkafe.studios.network.sdk.tabulate"
+version = "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+
+    maven("https://repo.papermc.io/repository/maven-public/")
+    maven("https://oss.sonatype.org/content/repositories/snapshots/")
+}
+
+dependencies {
+    compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
+    implementation("com.mojang:authlib:5.0.47")
+
+    implementation("net.kyori:adventure-platform-bukkit:4.4.0")
+    implementation("net.kyori:adventure-text-minimessage:4.21.0")
+    implementation("net.kyori:adventure-text-serializer-gson:4.15.0")
+}
+
+tasks {
+    compileJava {
+        options.encoding = "UTF-8"
+        options.release.set(17)
+    }
+
+    shadowJar {
+        archiveFileName.set("nautchkafe-tabulate.jar")
+    }
+}
