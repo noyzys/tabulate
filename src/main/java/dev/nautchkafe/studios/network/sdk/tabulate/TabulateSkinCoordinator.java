@@ -25,6 +25,7 @@ final class TabulateSkinCoordinator implements TabulateSkinProperty {
 
         final UUID uniqueId = player.getUniqueId();
         skinProfiles.put(uniqueId, skinProfile);
+        toGameProfile(player, skinProfile);
     }
 
     private void toGameProfile(final TabulatePlayer player, final TabulateSkinProfile skinProfile) {
